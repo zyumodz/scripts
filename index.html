@@ -372,7 +372,6 @@
   </script>
  </head>
  <body>
-   <div id="loading" style="color:white;text-align:center;padding: 20px;">Loading...</div>
   <input class="global-search-bar" onkeyup="globalSearch(this.value)" placeholder="🔍 Search..." type="text"/>
   <!-- Clickable logo directing to the new link -->
   <a href="https://zyu-modz.vercel.app/">
@@ -791,10 +790,6 @@
       allSection.setAttribute('tabindex', '-1');
       allSection.focus();
     }
-    window.addEventListener("load", () => {
-  const loader = document.getElementById("loading");
-  if (loader) loader.style.display = "none";
-});
   </script>
  </body>
 </html>
