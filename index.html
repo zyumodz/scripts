@@ -1,871 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Zyumodz Scripts
-  </title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZyuModz – Script Hub</title>
   <style>
-   :root {
-      --primary-color: #007BFF;
-      --secondary-color: #0056b3;
-      --accent-color: #1E90FF;
-      --background-dark: #0F0F1E;
-      --background-darker: #1A1A2F;
-      --background-gray: #2D2D4D;
-      --text-light: #FFF;
-      --text-dim: #B0B0FF;
-      --transparent-bg: rgba(26,26,47,0.9);
-      --border-color: rgba(0,123,255,0.2);
-      --glass-bg: rgba(0,123,255,0.05);
-      --section-spacing: 2rem;
-    }
-    @keyframes floatNoSpin {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes scaleUp {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideRight {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
       margin: 0;
-      padding: calc(0.5rem + env(safe-area-inset-top)) 2rem 2rem;
-      background: linear-gradient(45deg, var(--background-dark), var(--background-darker), var(--background-gray));
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: var(--text-light);
-      line-height: 1.6;
+      background: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .global-search-bar {
-      width: min(90%, 250px);
-      padding: 0.5rem 1.5rem;
-      margin: 0.5rem 0;
-      border: 1px solid var(--border-color);
-      border-radius: 50px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      color: var(--text-light);
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1c1c1c;
+      box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00aaff;
+    }
+
+    /* Search bar styling */
+    .search-container {
+      margin: 20px 0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .search-container input {
+      padding: 10px;
       font-size: 1rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
-    .global-search-bar:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 15px rgba(0,123,255,0.2);
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 2rem 0;
-      border: 3px solid var(--primary-color);
-      box-shadow: 0 0 30px rgba(0,123,255,0.3);
-      animation: floatNoSpin 4s ease-in-out infinite;
-      transition: transform 0.3s ease;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-    }
-    .logo:focus {
-      outline: none;
-      border: 3px solid var(--primary-color);
-    }
-    .lobby-link {
-      display: block;
-      text-align: center;
-      margin-bottom: 1rem;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00c3ff;
-      text-shadow: 0 0 10px rgba(0,123,255,0.5);
-    }
-    .folder-container {
-      background: var(--transparent-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      overflow: hidden;
-      animation: scaleUp 0.6s cubic-bezier(0.23,1,0.32,1);
-    }
-    #mainSection {
-      width: min(90%, 250px);
-      margin: 1rem auto;
-      text-align: center;
-    }
-    .hidden-section {
-      display: none;
-      width: min(90%, 450px);
-      margin: 2rem auto;
-      text-align: center;
-    }
-    .hidden-section:focus {
-      outline: none;
-    }
-    .folder-header {
-      padding: 1.5rem;
-      background: var(--glass-bg);
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      position: relative;
-      color: var(--text-light);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .clickable {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1.25rem 2rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      margin: 0.5rem;
-    }
-    .clickable::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--primary-color);
-      transition: height 0.3s ease;
-    }
-    .clickable:hover {
-      background: var(--glass-bg);
-      padding-left: 2.5rem;
-    }
-    .clickable:hover::before {
-      height: 100%;
-    }
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      margin: 1.5rem;
-      border: none;
-      border-radius: 50px;
-      background: var(--primary-color);
-      color: #FFF;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,123,255,0.3);
-    }
-    .back-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,123,255,0.4);
-    }
-    .section {
-      margin: 1.5rem;
-      padding: 1.5rem;
-      background: var(--glass-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 15px;
-      animation: slideIn 0.4s ease;
-    }
-    .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .download-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      border-radius: 8px;
-      text-decoration: none;
-      color: #FFF;
-      transition: transform 0.3s ease;
-    }
-    .download-badge:hover {
-      transform: translateY(-2px);
-    }
-    .search-bar {
       width: 80%;
-      padding: 0.75rem 1rem;
-      margin: 1rem auto;
-      border: 1px solid var(--border-color);
-      border-radius: 50px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      color: var(--text-light);
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      animation: slideRight 0.4s ease;
+      max-width: 400px;
+      border-radius: 25px;
+      border: 1px solid #00aaff;
+      background-color: #1e1e1e;
+      color: white;
+      outline: none;
     }
-    .preview-image {
+
+    .search-container input::placeholder {
+      color: #ccc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+      transition: transform 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+    }
+
+    .card img {
       width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
     }
-    @media(max-width:768px){
-      .folder-container { border-radius: 15px; }
-      .clickable { padding: 1rem 1.5rem; }
-      .hidden-section { width: 98%; }
-      #section1 .section,
-      #section2 .section,
-      #section3 .section,
-      #section4 .section,
-      #section5 .section,
-      #section6 .section,
-      #section7 .section,
-      #section8 .section,
-      #section9 .section,
-      #section10 .section,
-      #section11 .section,
-      #section12 .section,
-      #section13 .section,
-      #section14 .section,
-      #section15 .section,
-      #allSection .section {
-         margin: 1rem auto;
-         padding: 0.5rem;
-      }
-      #section1 .section .preview-image,
-      #section2 .section .preview-image,
-      #section3 .section .preview-image,
-      #section4 .section .preview-image,
-      #section5 .section .preview-image,
-      #section6 .section .preview-image,
-      #section7 .section .preview-image,
-      #section8 .section .preview-image,
-      #section9 .section .preview-image,
-      #section10 .section .preview-image,
-      #section11 .section .preview-image,
-      #section12 .section .preview-image,
-      #section13 .section .preview-image,
-      #section14 .section .preview-image,
-      #section15 .section .preview-image,
-      #allSection .section .preview-image {
-         width: calc(100% + 1rem);
-         margin-left: -0.5rem;
-         margin-right: -0.5rem;
-         margin-bottom: -0.5rem;
-      }
-      #section1 .search-bar,
-      #section2 .search-bar,
-      #section3 .search-bar,
-      #section4 .search-bar,
-      #section5 .search-bar,
-      #section6 .search-bar,
-      #section7 .search-bar,
-      #section8 .search-bar,
-      #section9 .search-bar,
-      #section10 .search-bar,
-      #section11 .search-bar,
-      #section12 .search-bar,
-      #section13 .search-bar,
-      #section14 .search-bar,
-      #section15 .search-bar,
-      #allSection .search-bar { width: 60%; }
+
+    .card-content {
+      padding: 15px;
     }
-    @media(min-width:769px){
-      #section1 .section,
-      #section2 .section,
-      #section3 .section,
-      #section4 .section,
-      #section5 .section,
-      #section6 .section,
-      #section7 .section,
-      #section8 .section,
-      #section9 .section,
-      #section10 .section,
-      #section11 .section,
-      #section12 .section,
-      #section13 .section,
-      #section14 .section,
-      #section15 .section,
-      #allSection .section { padding: 0.5rem; }
-      #section1 .section .preview-image,
-      #section2 .section .preview-image,
-      #section3 .section .preview-image,
-      #section4 .section .preview-image,
-      #section5 .section .preview-image,
-      #section6 .section .preview-image,
-      #section7 .section .preview-image,
-      #section8 .section .preview-image,
-      #section9 .section .preview-image,
-      #section10 .section .preview-image,
-      #section11 .section .preview-image,
-      #section12 .section .preview-image,
-      #section13 .section .preview-image,
-      #section14 .section .preview-image,
-      #section15 .section .preview-image,
-      #allSection .section .preview-image {
-         width: calc(100% + 1rem);
-         margin-left: -0.5rem;
-         margin-right: -0.5rem;
-         margin-bottom: -0.5rem;
-      }
-      #section1 .search-bar,
-      #section2 .search-bar,
-      #section3 .search-bar,
-      #section4 .search-bar,
-      #section5 .search-bar,
-      #section6 .search-bar,
-      #section7 .search-bar,
-      #section8 .search-bar,
-      #section9 .search-bar,
-      #section10 .search-bar,
-      #section11 .search-bar,
-      #section12 .search-bar,
-      #section13 .search-bar,
-      #section14 .search-bar,
-      #section15 .search-bar,
-      #allSection .search-bar { width: 60%; }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #00ccff;
     }
-    @media(prefers-reduced-motion:reduce){
-      * { animation: none!important; transition: none!important; }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: #00ffaa;
+      color: #000;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-  <script src="https://publisher.linkvertise.com/cdn/linkvertise.js">
+    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js">
   </script>
   <script>
    linkvertise(453151, {whitelist: [], blacklist: [""]});
   </script>
-  
- </head>
- <body>
-  <input class="global-search-bar" onkeyup="globalSearch(this.value)" placeholder="🔍 Search..." type="text"/>
-  <!-- Clickable logo directing to the new link -->
-  <a href="https://zyu-modz.vercel.app/">
-   <img alt="Logo" class="logo" src="https://i.imgur.com/YuWOptf.png" tabindex="0"/>
-  </a>
-  <a class="lobby-link" href="https://zyu-modz.vercel.app/">
-   Home
-  </a>
-  
-  <div class="folder-container" id="mainSection">
-   <div class="folder-header">
-    <i class="fas fa-code">
-    </i>
-    Scripts
-   </div>
-   <!-- New clickable for All -->
-   <div class="clickable" onclick="showAllItems()">
-    <i class="fas fa-globe">
-    </i>
-    All
-   </div>
-   <div class="clickable" onclick="showSection('section1')">
-    <i class="fas fa-train">
-    </i>
-    DeadRails
-   </div>
-   <div class="clickable" onclick="showSection('section2')">
-    <i class="fas fa-crosshairs">
-    </i>
-    Rivals
-   </div>
-   <div class="clickable" onclick="showSection('section3')">
-    <i class="fas fa-th-large">
-    </i>
-    Other Scripts
-   </div>
-   <!-- New clickable for Marketplace -->
+</head>
+<body>
 
+  <header>
+    <h1>ZyuModz Script Hub</h1>
+    <p>Explore the latest Roblox scripts for every game</p>
+  </header>
+
+  <!-- Search bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search scripts..." onkeyup="filterScripts()" />
   </div>
-  <!-- Hidden sections -->
-  <div class="hidden-section" id="section1">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; text-shadow: 0 0 10px rgba(0,195,255,0.5); font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-cube">
-    </i>
-    <br/>
-    Deadrails
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section1')" placeholder="🔍 Search..." type="text"/><div class="section">
-    <div class="section-title">
-     Deadrails Auto Egg Event
-    </div>
-    <a class="download-badge" href="https://paste-drop.com/paste/kakeieoqp" target="_blank">
-     <i class="fas fa-code">
-     </i>
-     Get Script!
+
+  <main class="grid" id="scriptGrid">
+    <!-- Deadrails Auto Egg Event -->
+    <a href="https://paste-drop.com/paste/kakeieoqp" class="card">
+      <img src="https://i.postimg.cc/wjVyF1yv/Screenshot-2025-04-22-15-35-46-08-f69139cffc4d135a71392e13634f144a.jpg" alt="Deadrails Auto Egg Event">
+      <div class="card-content">
+        <h2>Deadrails Auto Egg Event</h2>
+        <p>Best Auto Egg Event in DeadRails 2025</p>
+        <span class="tag">No Key</span>
+      </div>
     </a>
-    <img alt="Best Auto Egg Event in DeadRails 2025" class="preview-image" loading="lazy" src="https://i.postimg.cc/wjVyF1yv/Screenshot-2025-04-22-15-35-46-08-f69139cffc4d135a71392e13634f144a.jpg"/>
-   </div>
-   <div class="section">
-  <div class="section-title">Dead Rails | Fly Script + Anti-Cheat Bypass, Fully Working
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/powusbaba" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/hvfTLZW.jpeg" alt="Dead Rails | Fly Script + Anti-Cheat Bypass, Fully Working
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">Dead Rails | Teleport Script with Anti-Cheat Bypass, Fully Undetected
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/Keieijwbansd" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/SrD0FWf.jpeg" alt="Dead Rails | Teleport Script with Anti-Cheat Bypass, Fully Undetected
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">Auto bonds V1
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/jwjwja" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/twkyUx3.jpeg" alt="v1
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">Auto Bonds V2
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/Iqoiwhs" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/G5p8Cca.jpeg" alt="?!?
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">Auto Bonds V3
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/oowiwhss" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/OEJyhgo.jpeg" alt="?!?
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">Dead Rails Nullfire GUI | Clean Interface + Powerful Teleports & Features
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/kaieunds" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/uKsVv7U.jpeg" alt="?!?
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">DeadRails Ringta teleport
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/oowiwjsns" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/X7YnRPH.jpeg" alt="?!?
-" loading="lazy"/>
-</div>
-<div class="section">
-  <div class="section-title">DeadRails | Weld Anywhere Script
-</div>
-  <a class="download-badge" href="https://bstlar.com/1yk/okjenens" target="_blank">
-    <i class="fas fa-code"></i> Get Script!
-  </a>
-  <img class="preview-image" src="https://i.imgur.com/ra707gg.jpeg" alt="?!?
-" loading="lazy"/>
-</div>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section2">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; text-shadow: 0 0 10px rgba(0,195,255,0.5); font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-user">
-    </i>
-    <br/>
-    Rivals Op Scripts
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section2')" placeholder="🔍 Search..." type="text"/>
-   
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section3">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; text-shadow: 0 0 10px rgba(0,195,255,0.5); font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fab fa-android">
-    </i>
-    <br/>
-    Others...
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section3')" placeholder="🔍 Search..." type="text"/>
-   
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section4">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; text-shadow: 0 0 10px rgba(0,195,255,0.5); font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fab fa-apple">
-    </i>
-    <br/>
-    iOS
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section4')" placeholder="🔍 Search..." type="text"/>
-   <!-- iOS section currently has no items -->
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <!-- Sections 5 to 15 as empty placeholders -->
-  <div class="hidden-section" id="section5">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 5
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section5')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section6">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 6
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section6')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section7">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 7
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section7')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section8">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 8
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section8')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section9">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 9
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section9')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section10">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 10
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section10')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section11">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 11
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section11')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section12">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 12
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section12')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section13">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 13
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section13')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section14">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 14
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section14')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <div class="hidden-section" id="section15">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-folder">
-    </i>
-    <br/>
-    Section 15
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'section15')" placeholder="🔍 Search..." type="text"/>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
-  <!-- New hidden section for All -->
-  <div class="hidden-section" id="allSection">
-   <header style="text-align: center; margin: 2rem 0; color: #00c3ff; text-shadow: 0 0 10px rgba(0,195,255,0.5); font-size: 2rem; animation: slideDown 0.5s ease-out;">
-    <i class="fas fa-globe">
-    </i>
-    <br/>
-    All
-   </header>
-   <input class="search-bar" onkeyup="sectionSearch(this.value, 'allSection')" placeholder="🔍 Search..." type="text"/>
-   <div id="allItemsContainer">
-   </div>
-   <button class="back-button" onclick="goBack()" style="animation: slideUp 0.5s ease-out;">
-    <i class="fas fa-arrow-left">
-    </i>
-    Back
-   </button>
-  </div>
+
+    <!-- Dead Rails Fly Script -->
+    <a href="https://bstlar.com/1yk/powusbaba" class="card">
+      <img src="https://i.imgur.com/hvfTLZW.jpeg" alt="Dead Rails | Fly Script + Anti-Cheat Bypass, Fully Working">
+      <div class="card-content">
+        <h2>Dead Rails | Fly Script + Anti-Cheat Bypass</h2>
+        <p>Fully working Fly Script with Anti-Cheat Bypass</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Dead Rails Teleport Script -->
+    <a href="https://bstlar.com/1yk/Keieijwbansd" class="card">
+      <img src="https://i.imgur.com/SrD0FWf.jpeg" alt="Dead Rails | Teleport Script with Anti-Cheat Bypass, Fully Undetected">
+      <div class="card-content">
+        <h2>Dead Rails | Teleport Script</h2>
+        <p>Fully Undetected Teleport Script with Anti-Cheat Bypass</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Auto Bonds V1 -->
+    <a href="https://bstlar.com/1yk/jwjwja" class="card">
+      <img src="https://i.imgur.com/twkyUx3.jpeg" alt="Auto Bonds V1">
+      <div class="card-content">
+        <h2>Auto Bonds V1</h2>
+        <p>Fast bonds auto-collection script</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Auto Bonds V2 -->
+    <a href="https://bstlar.com/1yk/Iqoiwhs" class="card">
+      <img src="https://i.imgur.com/G5p8Cca.jpeg" alt="Auto Bonds V2">
+      <div class="card-content">
+        <h2>Auto Bonds V2</h2>
+        <p>Improved version with faster collection</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Auto Bonds V3 -->
+    <a href="https://bstlar.com/1yk/oowiwhss" class="card">
+      <img src="https://i.imgur.com/OEJyhgo.jpeg" alt="Auto Bonds V3">
+      <div class="card-content">
+        <h2>Auto Bonds V3</h2>
+        <p>Ultimate version for maximum speed</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Dead Rails Nullfire GUI -->
+    <a href="https://bstlar.com/1yk/kaieunds" class="card">
+      <img src="https://i.imgur.com/uKsVv7U.jpeg" alt="Dead Rails Nullfire GUI">
+      <div class="card-content">
+        <h2>Dead Rails Nullfire GUI</h2>
+        <p>Clean Interface with Powerful Teleports</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Dead Rails Ringta Teleport -->
+    <a href="https://bstlar.com/1yk/oowiwjsns" class="card">
+      <img src="https://i.imgur.com/X7YnRPH.jpeg" alt="Dead Rails Ringta Teleport">
+      <div class="card-content">
+        <h2>Dead Rails Ringta Teleport</h2>
+        <p>Teleport anywhere in Dead Rails</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Dead Rails Weld Anywhere -->
+    <a href="https://bstlar.com/1yk/okjenens" class="card">
+      <img src="https://i.imgur.com/ra707gg.jpeg" alt="Dead Rails Weld Anywhere">
+      <div class="card-content">
+        <h2>Dead Rails Weld Anywhere</h2>
+        <p>Weld items anywhere in the game</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    &copy; 2025 ZyuModz. All rights reserved.
+  </footer>
+
   <script>
-    
-   let searchTimeout;
-    function globalSearch(query) {
-      clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(() => {
-        const normalizedQuery = query.toLowerCase().trim();
-        const mainSection = document.getElementById('mainSection');
-        const hiddenSections = document.getElementsByClassName('hidden-section');
-        let anyCardVisible = false;
-        
-        if (normalizedQuery === '') {
-          mainSection.style.display = "block";
-          Array.from(hiddenSections).forEach(container => {
-            container.style.display = "none";
-            const cards = container.querySelectorAll('.section');
-            cards.forEach(card => {
-              card.style.display = "block";
-            });
-          });
-          const noResultsElem = document.getElementById('noResults');
-          if (noResultsElem) noResultsElem.remove();
+    function filterScripts() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const scriptCards = document.querySelectorAll('.card');
+
+      scriptCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchInput) || description.includes(searchInput)) {
+          card.style.display = '';
         } else {
-          mainSection.style.display = "none";
-          Array.from(hiddenSections).forEach(container => {
-            let containerHasVisible = false;
-            const cards = container.querySelectorAll('.section');
-            cards.forEach(card => {
-              if (card.textContent.toLowerCase().includes(normalizedQuery)) {
-                card.style.display = "block";
-                containerHasVisible = true;
-                anyCardVisible = true;
-              } else {
-                card.style.display = "none";
-              }
-            });
-            container.style.display = containerHasVisible ? "block" : "none";
-          });
-          let noResultsElem = document.getElementById('noResults');
-          if (!anyCardVisible) {
-            if (!noResultsElem) {
-              noResultsElem = document.createElement('div');
-              noResultsElem.id = 'noResults';
-              noResultsElem.textContent = 'No results found.';
-              noResultsElem.style.color = 'var(--text-dim)';
-              noResultsElem.style.textAlign = 'center';
-              noResultsElem.style.marginTop = '1rem';
-              mainSection.parentNode.insertBefore(noResultsElem, mainSection.nextSibling);
-            }
-          } else if (noResultsElem) {
-            noResultsElem.remove();
-          }
-        }
-      }, 300);
-    }
-    
-    function sectionSearch(query, sectionId) {
-      const container = document.getElementById(sectionId);
-      const cards = container.querySelectorAll('.section');
-      const normalizedQuery = query.toLowerCase().trim();
-      let anyVisible = false;
-      cards.forEach(card => {
-        if (card.textContent.toLowerCase().includes(normalizedQuery)) {
-          card.style.display = "block";
-          anyVisible = true;
-        } else {
-          card.style.display = "none";
+          card.style.display = 'none';
         }
       });
-      let noResultsElem = container.querySelector('.no-results');
-      if (!anyVisible) {
-        if (!noResultsElem) {
-          noResultsElem = document.createElement('div');
-          noResultsElem.className = 'no-results';
-          noResultsElem.textContent = 'No results found.';
-          noResultsElem.style.color = 'var(--text-dim)';
-          noResultsElem.style.textAlign = 'center';
-          noResultsElem.style.marginTop = '1rem';
-          container.appendChild(noResultsElem);
-        }
-      } else {
-        if (noResultsElem) {
-          noResultsElem.remove();
-        }
-      }
     }
-    
-    function showSection(sectionId) {
-      document.getElementById('mainSection').style.display = "none";
-      const sections = document.getElementsByClassName('hidden-section');
-      for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = "none";
-      }
-      const section = document.getElementById(sectionId);
-      section.style.display = "block";
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      section.setAttribute('tabindex', '-1');
-      section.focus();
-    }
-    
-    function goBack() {
-      document.getElementById('mainSection').style.display = "block";
-      const sections = document.getElementsByClassName('hidden-section');
-      for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = "none";
-      }
-    }
-    
-    // Updated function to merge items from all sections (section1 to section15)
-    function showAllItems() {
-      document.getElementById('mainSection').style.display = "none";
-      const sections = document.getElementsByClassName('hidden-section');
-      for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = "none";
-      }
-      const allContainer = document.getElementById('allItemsContainer');
-      allContainer.innerHTML = "";
-      // Collect items from sections 1 through 15
-      const ids = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9', 'section10', 'section11', 'section12', 'section13', 'section14', 'section15'];
-      let allItems = [];
-      ids.forEach(function(id) {
-        const container = document.getElementById(id);
-        if (container) {
-          const items = container.querySelectorAll('.section');
-          items.forEach(function(item) {
-            allItems.push(item.cloneNode(true));
-          });
-        }
-      });
-      allItems.sort(() => Math.random() - 0.5);
-      allItems.forEach(function(item) {
-        allContainer.appendChild(item);
-      });
-      const allSection = document.getElementById('allSection');
-      allSection.style.display = "block";
-      allSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      allSection.setAttribute('tabindex', '-1');
-      allSection.focus();
-    }
-    
   </script>
- </body>
+
+  <!-- Additional Script -->
+  <script>
+    (function(s,u,z,p){
+      s.src=u;
+      s.setAttribute('data-zone',z);
+      p.appendChild(s);
+    })(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9278919,document.body||document.documentElement);
+  </script>
+
+  <!-- Linkvertise Script API -->
+  
+
+</body>
 </html>
