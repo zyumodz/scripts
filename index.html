@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://vaugroar.com/act/files/tag.min.js?z=9282682" data-cfasync="false" async></script><script>
-  // Detect Brave Browser
-  function detectBrave(callback) {
-    if (navigator.brave) {
-      navigator.brave.isBrave().then(function(isBrave) {
-        callback(isBrave);
-      });
-    } else {
-      callback(false);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZyuModz – Script Hub</title>
+
+  <!-- Brave Redirect Detection -->
+  <script>
+    function detectBrave(callback) {
+      if (navigator.brave) {
+        navigator.brave.isBrave().then(function (isBrave) {
+          callback(isBrave);
+        });
+      } else {
+        callback(false);
+      }
     }
-  }
 
-  detectBrave(function(isBrave) {
-    if (isBrave) {
-      // Show alert (optional)
-      alert("Brave browser is unsupported. Redirecting...");
+    detectBrave(function (isBrave) {
+      if (isBrave) {
+        alert("Brave browser is unsupported. Redirecting...");
+        window.location.href = "unsupported.html";
+      }
+    });
+  </script>
 
-      // Redirect to a page of your choice
-      window.location.href = "unsupported.html"; // Change this URL
-    }
-  });
-</script>
-
-<script src="https://upskittyan.com/act/files/tag.min.js?z=9282682" data-cfasync="false" async></script>
-<script type='text/javascript' src='//hysteriafiring.com/41/1d/77/411d77c5ca86994f2a64b441530fa02b.js'></script>
-  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9282440,document.createElement('script'))</script>
+  <!-- Ad Networks (Header Scripts) -->
+  <script src="https://vaugroar.com/act/files/tag.min.js?z=9282682" data-cfasync="false" async></script>
+  <script src="https://upskittyan.com/act/files/tag.min.js?z=9282682" data-cfasync="false" async></script>
+  <script type="text/javascript" src="//hysteriafiring.com/41/1d/77/411d77c5ca86994f2a64b441530fa02b.js"></script>
+  <script>
+    (function (d, z, s) {
+      s.src = 'https://' + d + '/401/' + z;
+      try {
+        (document.body || document.documentElement).appendChild(s)
+      } catch (e) { }
+    })('gizokraijaw.net', 9282440, document.createElement('script'));
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZyuModz – Script Hub</title>
@@ -150,6 +160,13 @@
   </style>
 </head>
 <body>
+ <body>
+  <!-- Subtle Warning Message -->
+  <div style="background-color: #333; color: #ffcc00; text-align: center; padding: 12px; font-size: 1.2rem; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+    <strong>PLEASE BE CAUTIOUS WHEN INTERACTING WITH ADS</strong>
+  </div>
+
+  <!-- Your existing header and content go here... --> 
   <header>
     <h1>ZyuModz Script Hub</h1>
     <p>Explore the latest Roblox scripts for every game</p>
