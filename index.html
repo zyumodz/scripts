@@ -1,328 +1,311 @@
-<!DOCTYPE html>  <html lang="en">  
+<!DOCTYPE html>
+<html lang="en">
 <head>
-      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9282440,document.createElement('script'))</script>
-      <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>ZyuModz – Script Hub</title>  
-  <style>  
-    body {  
-      margin: 0;  
-      background: #121212;  
-      color: white;  
-      font-family: 'Segoe UI', sans-serif;  
-    }  header {  
-  text-align: center;  
-  padding: 40px 20px;  
-  background: #1c1c1c;  
-  box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);  
-}  
+  <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145311" async data-cfasync="false"></script>
+  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9282440,document.createElement('script'))</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZyuModz – Script Hub</title>
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1c1c1c;
+      box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #00aaff;
+    }
+    /* Search bar styling */
+    .search-container {
+      margin: 20px 0;
+      padding: 10px;
+      text-align: center;
+    }
+    .search-container input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 25px;
+      border: 1px solid #00aaff;
+      background-color: #1e1e1e;
+      color: white;
+      outline: none;
+    }
+    .search-container input::placeholder {
+      color: #ccc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+      transition: transform 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #00ccff;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: #00ffaa;
+      color: #000;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    /* Ad Banner styling */
+    .ad-banner {
+      position: relative;
+      background: #333;
+      text-align: center;
+      padding: 20px 0;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+      overflow: hidden;
+    }
+    .ad-banner span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.3); /* Low transparency */
+      font-weight: bold;
+    }
+    /* Ensuring banner doesn't break out of grid */
+    .ad-banner iframe {
+      width: 100%;
+      height: 90px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ZyuModz Script Hub</h1>
+    <p>Explore the latest Roblox scripts for every game</p>
+  </header>
 
-h1 {  
-  font-size: 2.5rem;  
-  color: #00aaff;  
-}  
+  <!-- Search bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search scripts..." onkeyup="filterScripts()" />
+  </div>
 
-/* Search bar styling */  
-.search-container {  
-  margin: 20px 0;  
-  padding: 10px;  
-  text-align: center;  
-}  
-
-.search-container input {  
-  padding: 10px;  
-  font-size: 1rem;  
-  width: 80%;  
-  max-width: 400px;  
-  border-radius: 25px;  
-  border: 1px solid #00aaff;  
-  background-color: #1e1e1e;  
-  color: white;  
-  outline: none;  
-}  
-
-.search-container input::placeholder {  
-  color: #ccc;  
-}  
-
-.grid {  
-  display: grid;  
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
-  gap: 20px;  
-  padding: 30px 20px;  
-}  
-
-.card {  
-  background: #1e1e1e;  
-  border-radius: 15px;  
-  overflow: hidden;  
-  box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);  
-  transition: transform 0.2s ease;  
-  text-decoration: none;  
-  color: inherit;  
-}  
-
-.card:hover {  
-  transform: translateY(-5px);  
-  box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);  
-}  
-
-.card img {  
-  width: 100%;  
-  height: 160px;  
-  object-fit: cover;  
-}  
-
-.card-content {  
-  padding: 15px;  
-}  
-
-.card h2 {  
-  font-size: 1.2rem;  
-  margin: 10px 0 5px;  
-  color: #00ccff;  
-}  
-
-.card p {  
-  font-size: 0.9rem;  
-  color: #ccc;  
-}  
-
-.tag {  
-  display: inline-block;  
-  margin-top: 10px;  
-  padding: 4px 10px;  
-  background: #00ffaa;  
-  color: #000;  
-  border-radius: 20px;  
-  font-size: 0.75rem;  
-  font-weight: bold;  
-}  
-
-footer {  
-  text-align: center;  
-  padding: 20px;  
-  background: #1c1c1c;  
-  font-size: 0.9rem;  
-  color: #888;  
-}
-
-  </style>  
+  <main class="grid" id="scriptGrid">
     
-</head>  
-<body>    <header>  
-    <h1>ZyuModz Script Hub</h1>  
-    <p>Explore the latest Roblox scripts for every game</p>  
-  </header>    <!-- Search bar -->    <div class="search-container">  
-    <input type="text" id="searchInput" placeholder="Search scripts..." onkeyup="filterScripts()" />  
-  </div>    <main class="grid" id="scriptGrid">  
-    <!-- Deadrails Auto Egg Event -->  
-    <a href="https://paste-drop.com/paste/kakeieoqp" class="card">  
-      <img src="https://i.postimg.cc/wjVyF1yv/Screenshot-2025-04-22-15-35-46-08-f69139cffc4d135a71392e13634f144a.jpg" alt="Deadrails Auto Egg Event">  
-      <div class="card-content">  
-        <h2>Deadrails Auto Egg Event</h2>  
-        <p>Best Auto Egg Event in DeadRails 2025</p>  
-        <span class="tag">No Key</span>  
-      </div>  
-    </a>  
-    <!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-    <!-- Dead Rails Fly Script -->  
-<a href="https://bstlar.com/1yk/powusbaba" class="card">  
-  <img src="https://i.imgur.com/hvfTLZW.jpeg" alt="Dead Rails | Fly Script + Anti-Cheat Bypass, Fully Working">  
-  <div class="card-content">  
-    <h2>Dead Rails | Fly Script + Anti-Cheat Bypass</h2>  
-    <p>Fully working Fly Script with Anti-Cheat Bypass</p>  
-    <span class="tag">No Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Dead Rails Teleport Script -->  
-<a href="https://bstlar.com/1yk/Keieijwbansd" class="card">  
-  <img src="https://i.imgur.com/SrD0FWf.jpeg" alt="Dead Rails | Teleport Script with Anti-Cheat Bypass, Fully Undetected">  
-  <div class="card-content">  
-    <h2>Dead Rails | Teleport Script</h2>  
-    <p>Fully Undetected Teleport Script with Anti-Cheat Bypass</p>  
-    <span class="tag">No Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Auto Bonds V1 -->  
-<a href="https://bstlar.com/1yk/jwjwja" class="card">  
-  <img src="https://i.imgur.com/twkyUx3.jpeg" alt="Auto Bonds V1">  
-  <div class="card-content">  
-    <h2>Auto Bonds V1</h2>  
-    <p>Fast bonds auto-collection script</p>  
-    <span class="tag">Has Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Auto Bonds V2 -->  
-<a href="https://bstlar.com/1yk/Iqoiwhs" class="card">  
-  <img src="https://i.imgur.com/G5p8Cca.jpeg" alt="Auto Bonds V2">  
-  <div class="card-content">  
-    <h2>Auto Bonds V2</h2>  
-    <p>Improved version with faster collection</p>  
-    <span class="tag">Has Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Auto Bonds V3 -->  
-<a href="https://bstlar.com/1yk/oowiwhss" class="card">  
-  <img src="https://i.imgur.com/OEJyhgo.jpeg" alt="Auto Bonds V3">  
-  <div class="card-content">  
-    <h2>Auto Bonds V3</h2>  
-    <p>Ultimate version for maximum speed</p>  
-    <span class="tag">Has Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Dead Rails Nullfire GUI -->  
-<a href="https://bstlar.com/1yk/kaieunds" class="card">  
-  <img src="https://i.imgur.com/uKsVv7U.jpeg" alt="Dead Rails Nullfire GUI">  
-  <div class="card-content">  
-    <h2>Dead Rails Nullfire GUI</h2>  
-    <p>Clean Interface with Powerful Teleports</p>  
-    <span class="tag">No Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Dead Rails Ringta Teleport -->  
-<a href="https://bstlar.com/1yk/oowiwjsns" class="card">  
-  <img src="https://i.imgur.com/X7YnRPH.jpeg" alt="Dead Rails Ringta Teleport">  
-  <div class="card-content">  
-    <h2>Dead Rails Ringta Teleport</h2>  
-    <p>Teleport anywhere in Dead Rails</p>  
-    <span class="tag">No Key</span>  
-  </div>  
-</a>  
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-<!-- Dead Rails Weld Anywhere -->  
-<a href="https://bstlar.com/1yk/okjenens" class="card">  
-  <img src="https://i.imgur.com/ra707gg.jpeg" alt="Dead Rails Weld Anywhere">  
-  <div class="card-content">  
-    <h2>Dead Rails Weld Anywhere</h2>  
-    <p>Weld items anywhere in the game</p>  
-    <span class="tag">No Key</span>  
-  </div>  
-</a>
-<!-- 💞 -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
-<!-- 💞 -->
-  </main>    <footer>  
-    &copy; 2025 ZyuModz. All rights reserved.  
-  </footer>    <script>  
-    function filterScripts() {  
-      const searchInput = document.getElementById('searchInput').value.toLowerCase();  
-      const scriptCards = document.querySelectorAll('.card');  
-  
-      scriptCards.forEach(card => {  
-        const title = card.querySelector('h2').textContent.toLowerCase();  
-        const description = card.querySelector('p').textContent.toLowerCase();  
-  
-        if (title.includes(searchInput) || description.includes(searchInput)) {  
-          card.style.display = '';  
-        } else {  
-          card.style.display = 'none';  
-        }  
-      });  
-    }  
-  </script>    <!-- Additional Script -->  <script type='text/javascript' src='//hysteriafiring.com/93/0e/aa/930eaa3480653c48c06fd0602770dcf9.js'></script>   </body>  
-</html>
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
 
+    <!-- Deadrails Auto Egg Event -->
+    <a href="https://paste-drop.com/paste/kakeieoqp" class="card">
+      <img src="https://i.postimg.cc/wjVyF1yv/Screenshot-2025-04-22-15-35-46-08-f69139cffc4d135a71392e13634f144a.jpg" alt="Deadrails Auto Egg Event">
+      <div class="card-content">
+        <h2>Deadrails Auto Egg Event</h2>
+        <p>Best Auto Egg Event in DeadRails 2025</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+
+    <!-- Dead Rails Fly Script -->
+    <a href="https://bstlar.com/1yk/powusbaba" class="card">
+      <img src="https://i.imgur.com/hvfTLZW.jpeg" alt="Dead Rails | Fly Script + Anti-Cheat Bypass, Fully Working">
+      <div class="card-content">
+        <h2>Dead Rails | Fly Script + Anti-Cheat Bypass</h2>
+        <p>Fully working Fly Script with Anti-Cheat Bypass</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+
+    <!-- Dead Rails Teleport Script -->
+    <a href="https://bstlar.com/1yk/Keieijwbansd" class="card">
+      <img src="https://i.imgur.com/SrD0FWf.jpeg" alt="Dead Rails | Teleport Script with Anti-Cheat Bypass, Fully Undetected">
+      <div class="card-content">
+        <h2>Dead Rails | Teleport Script</h2>
+        <p>Fully Undetected Teleport Script with Anti-Cheat Bypass</p>
+        <span class="tag">No Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+
+    <!-- Auto Bonds V1 -->
+    <a href="https://bstlar.com/1yk/jwjwja" class="card">
+      <img src="https://i.imgur.com/twkyUx3.jpeg" alt="Auto Bonds V1">
+      <div class="card-content">
+        <h2>Auto Bonds V1</h2>
+        <p>Fast bonds auto-collection script</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+
+    <!-- Auto Bonds V2 -->
+    <a href="https://bstlar.com/1yk/Iqoiwhs" class="card">
+      <img src="https://i.imgur.com/G5p8Cca.jpeg" alt="Auto Bonds V2">
+      <div class="card-content">
+        <h2>Auto Bonds V2</h2>
+        <p>Improved version with faster collection</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+
+    <!-- Auto Bonds V3 -->
+    <a href="https://bstlar.com/1yk/oowiwhss" class="card">
+      <img src="https://i.imgur.com/OEJyhgo.jpeg" alt="Auto Bonds V3">
+      <div class="card-content">
+        <h2>Auto Bonds V3</h2>
+        <p>Ultimate version for maximum speed</p>
+        <span class="tag">Has Key</span>
+      </div>
+    </a>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <span>ads</span>
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'cb3bac61cf69e2aecf9972d61a24cc86',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//hysteriafiring.com/cb3bac61cf69e2aecf9972d61a24cc86/invoke.js"></script>
+    </div>
+  </main>
+
+  <footer>
+    <p>Powered by ZyuModz</p>
+  </footer>
+</body>
+</html>
