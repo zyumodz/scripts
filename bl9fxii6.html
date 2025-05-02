@@ -4,6 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeadRails</title>
+    <script>
+    function detectBrave(callback) {
+      if (navigator.brave) {
+        navigator.brave.isBrave().then(function (isBrave) {
+          callback(isBrave);
+        });
+      } else {
+        callback(false);
+      }
+    }
+
+    detectBrave(function (isBrave) {
+      if (isBrave) {
+        alert("Brave browser is unsupported. Redirecting...");
+        window.location.href = "unsupported.html";
+      }
+    });
+  </script>
   <style>
     body {
       margin: 0;
