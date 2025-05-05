@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-   
-   <script src="https://eechicha.com/act/files/tag.min.js?z=9295346" data-cfasync="false" async></script>
+   <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145916" async data-cfasync="false"></script>
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3436486461828198"
      crossorigin="anonymous"></script>
  <meta name="google-adsense-account" content="ca-pub-3436486461828198"> <meta charset="utf-8"/>
@@ -822,7 +821,48 @@
       allSection.focus();
     }
   </script>
-  <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9296004,document.body||document.documentElement)</script>
-  <script src="https://pertawee.net/act/files/tag.min.js?z=9295346" data-cfasync="false" async></script>
+  
+
+<!-- Hidden bait -->
+<div id="adsbox" style="height:1px;width:1px;position:absolute;left:-9999px;">&nbsp;</div>
+
+<!-- Warning UI -->
+<div id="adblockWarning" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0a0a;color:white;z-index:9999;text-align:center;padding:50px;">
+  <h1>AdBlock Detected</h1>
+  <p>Please disable your ad blocker to view this site properly. Ads help support it.</p>
+</div>
+
+<script>
+  function detectAdBlock() {
+    const bait = document.getElementById("adsbox");
+    const baitBlocked = !bait || bait.offsetHeight === 0;
+
+    const monetagScript = document.createElement("script");
+    monetagScript.src = "https://ligheechoagool.com/88/tag.min.js";
+    monetagScript.onerror = () => showBlockScreen();
+    monetagScript.onload = () => {
+      if (!baitBlocked) showPage();
+      else showBlockScreen();
+    };
+    document.body.appendChild(monetagScript);
+  }
+
+  function showBlockScreen() {
+    document.getElementById("adblockWarning").style.display = "block";
+    document.querySelectorAll("body > *:not(#adblockWarning)").forEach(e => {
+      if (e.id !== "adsbox") {
+        e.style.filter = "blur(5px)";
+        e.style.pointerEvents = "none";
+      }
+    });
+    document.body.style.overflow = "hidden";
+  }
+
+  function showPage() {
+    // Optional: restore anything hidden
+  }
+
+  window.onload = detectAdBlock;
+</script>
  </body>
 </html>
